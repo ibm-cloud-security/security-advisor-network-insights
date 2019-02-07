@@ -41,6 +41,6 @@ Follow the steps below to install an agent to collect network flow logs from you
 **Note**: Repeat for each cluster where you want to remove the agents that collect network flow logs.
 
 # Troubleshooting
-1) if you get an error something like `Error: incompatible versions client and server`, run `helm init --upgrade`.
-
+1) If you get an error something like `Error: incompatible versions client and server`, run `helm init --upgrade`.
+2) If you get an error like : `namespaces security-advisor-insights is forbidden: User system:serviceaccount:kube-system:default cannot get resource namespaces in API group in thenamespace security-advisor-insights`, please fix the [helm setup](https://cloud.ibm.com/docs/containers/cs_integrations.html#helm), as the kube-system default service account does not have the cluster-admin access in your cluster.
 
