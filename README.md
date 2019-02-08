@@ -21,8 +21,8 @@ Follow the steps below to install an agent to collect network flow logs from you
 
 # Steps to run
 1) Download the tar file.
-2) Unzip using `tar -xvf security-advisor-network-analytics.tar`
-3) cd security-advisor-network-analytics
+2) Unzip using `tar -xvf security-advisor-network-insights.tar`
+3) cd security-advisor-network-insights
 4) Run `./network-insight-install.sh <cos_region> <cos_api_key>`
      - <cos_region> value is either us-south or eu-gb – the region where your COS is deployed
      - <cos_api_key> is the [api key](https://cloud.ibm.com/docs/services/cloud-object-storage/iam/service-credentials.html#service-credentials) you created to access your COS instance and bucket should have a Writer Role
