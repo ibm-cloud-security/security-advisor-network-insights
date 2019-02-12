@@ -25,7 +25,7 @@ Follow the steps below to install an agent to collect network flow logs from you
 3) `cd security-advisor-network-insights`
 4) Run `./network-insight-install.sh <cos_region> <cos_api_key>`
      - <cos_region> value is either us-south or eu-gb – the region where your COS is deployed
-     - <cos_api_key> is the [api key](https://cloud.ibm.com/docs/services/cloud-object-storage/iam/service-credentials.html#service-credentials) you created to access your COS instance and bucket should have a Writer Role
+     - <cos_api_key> is the [api key](https://cloud.ibm.com/docs/services/cloud-object-storage/iam/service-credentials.html#service-credentials) you created to access your COS instance and bucket should have a Writer Role.    
      **Note**:
         - This script first validates if a specific bucket with the naming convention sa.<account_id>.telemetric.<cos_region> exists.
         - Creates a Kuberenetes secrets with the following details: cos_region, cos_api_key, cos_endpoint, iam_endpoint, and cos_bucket_name.
