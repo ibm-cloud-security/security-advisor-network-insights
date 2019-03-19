@@ -20,10 +20,17 @@ Follow the steps below to install an agent to collect network flow logs from you
     - If you are using workstation to handle installation of analytics components in multiple clusters - and the helm TLS is enabled - please make sure that the TLS configurations in your workstation is current and corresponding to current cluster where you are planing to install these components.
 
 # Steps to run
-1) Download the tar file.
-2) Unzip using `tar -xvf security-advisor-network-insights.tar`
-3) `cd security-advisor-network-insights`
-4) Run `./network-insight-install.sh <cos_region> <cos_api_key>`
+1) Find out the cluster version using:
+   ```sh
+   kube_version=$(kubectl version --output json)
+   echo $(echo $kube_version |  yq r - serverVersion.major).$(echo $kube_version |  yq r - serverVersion.minor)
+   ```
+   - If output is `1.10`, then `cd v1.10`
+   - If output is greater than `1.10`, then `cd v1.10+`
+2) Download the tar file.
+3) Unzip using `tar -xvf security-advisor-network-insights.tar`
+4) `cd security-advisor-network-insights`
+5) Run `./network-insight-install.sh <cos_region> <cos_api_key>`
      - <cos_region> value is either us-south or eu-gb – the region where your COS is deployed
      - <cos_api_key> is the [api key](https://cloud.ibm.com/docs/services/cloud-object-storage/iam/service-credentials.html#service-credentials) you created to access your COS instance and bucket should have a Writer Role.    
      **Note**:
@@ -31,7 +38,7 @@ Follow the steps below to install an agent to collect network flow logs from you
         - Creates a Kuberenetes secrets with the following details: cos_region, cos_api_key, cos_endpoint, iam_endpoint, and cos_bucket_name.
         - Updates network-insights-values.yaml with cluster guid and netmask info.
         - Deploys the network insights helm chart into the cluster.
-5) Verify the installation :
+6) Verify the installation :
      - `helm ls | grep  network-insights` should return a helm release named `network-insights` in DEPLOYED state, use `--tls` flag if helm is TLS enabled.
      - `kubectl get pods -n security-advisor-insights | grep network-insights` should return two pods related to `network-insights` in RUNNING state.
 
