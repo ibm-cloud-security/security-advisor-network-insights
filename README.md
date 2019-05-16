@@ -28,7 +28,7 @@ Follow the steps below to install an agent to collect network flow logs from you
    kube_version=$(kubectl version --output json)
    echo $(echo $kube_version |  yq r - serverVersion.major).$(echo $kube_version |  yq r - serverVersion.minor)
    ```
-   - If output is `1.10`, then download security-advisor-network-insights.tar from `v1.10` directory in this repo.
+   - If output is `1.10`, then download security-advisor-network-insights.tar from `v1.10` directory in this repo.    
      **Note**: v1.10 is no more supported since May 15th, 2019
    - If output is greater than `1.10`, then download security-advisor-network-insights.tar from `v1.10+` directory in this repo.
 2. Unzip using `tar -xvf security-advisor-network-insights.tar`
