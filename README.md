@@ -56,4 +56,10 @@ Follow the steps below to install an agent to collect network flow logs from you
 # Troubleshooting
 
 1. If you get an error something like `Error: incompatible versions client and server`, run `helm init --upgrade`
-2. If you get an error like : `namespaces security-advisor-insights is forbidden: User system:serviceaccount:kube-system:default cannot get resource namespaces in API group in thenamespace security-advisor-insights`, please fix the [helm setup](https://cloud.ibm.com/docs/containers/cs_integrations.html#helm), as the kube-system default service account does not have the cluster-admin access in your cluster.
+2. If you get an error like : `namespaces security-advisor-insights is forbidden: User system:serviceaccount:kube-system:default cannot get resource namespaces in API group in thenamespace security-advisor-insights`, follow below steps:
+   ```kubectl delete deployment tiller-deploy -n kube-system
+   kubectl apply -f https://raw.githubusercontent.com/IBM-Cloud/kube-samples/master/rbac/serviceaccount-tiller.yaml
+   helm init --service-account tiller
+   kubectl get pods -n kube-system -l app=helm
+   helm list
+   ```
