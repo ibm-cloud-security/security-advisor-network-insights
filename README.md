@@ -4,6 +4,8 @@ Follow the steps below to install an agent to collect network flow logs from you
 
 # Prerequisites
 
+
+- IKS > v1.10 and < v1.16. For versions >=v1.16.x, please install charts available at https://github.com/skydive-project/skydive-operator
 - For Windows 10, Before starting with steps mentioned above, activate WSL(windows subsystem for linux) and install [ubuntu shell](https://win10faq.com/install-run-ubuntu-bash-windows-10/)
 - yq CLI
   - For MacOS, Windows 10: Install [yq CLI](http://mikefarah.github.io/yq/)
