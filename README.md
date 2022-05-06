@@ -1,3 +1,5 @@
+# DEPRECATED
+
 # Intro
 
 Follow the steps below to install an agent to collect network flow logs from your Kubernetes cluster. These network flow logs will be stored in your Cloud Object Storage (COS) instance. You can then enable Security Advisor Network Insights to analyze your network flow logs to detect and alert you to suspicious network activity. Repeat the installation in each Kubernetes cluster that you want to monitor.
